@@ -1,0 +1,182 @@
+body{
+    font-family: 'Inter', sans-serif;
+    background-color: #f7f7f7; 
+}
+
+.top-title{
+    background-color:rgb(64, 98, 220);
+    border-radius:8px;
+    text-align: center;
+    font-size:100px;
+    padding:10vb;
+    margin-bottom: 8px;
+}
+
+.top-title a{
+    cursor: pointer;
+    text-decoration:none;
+    color: white;
+}
+
+.button-1{
+    display: block;
+    margin-left: auto;
+    margin-bottom: 15px;
+    color: white;
+    letter-spacing: 3px;
+    font-weight: 700;
+    background-color: rgb(64, 98, 220);
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+}
+
+.button-1:hover{
+    cursor:pointer;
+    background-color: rgb(70, 105, 231);
+}
+
+.container{
+    margin-top:15px;
+    margin-left: 13%;
+    margin-right: 13%;
+}
+
+.container-operational{
+    color:white;
+    font-size: 20px;
+    background-color:#28a745;
+    padding:4vb;
+    border-radius: 8px;
+}
+
+.header{
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    margin:15vb 15px 15px 15px;
+    font-size: 20px;
+    color: #555;
+}
+
+.service-status {
+    border: 2px solid #c9c7c7;
+    padding: 20px;
+}
+
+.service-title {
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.help-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #ddd;
+    color: #555;
+    font-size: 12px;
+    cursor: help;
+}
+
+.status-indicator {
+    float: right;
+    font-size: 16px;
+    font-weight: bold;
+    color:#28a745;
+}
+
+.uptime-day {
+    flex-grow: 1;
+    background-color: #28a745;
+    margin-right: 4px;
+}
+
+.uptime-day:last-child {
+    margin-right: 0;
+}
+
+.uptime-day.down {
+    background-color: #dc3545;
+}
+
+.uptime-bar-container {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.uptime-percentage {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.time-range {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #777;
+}
+
+.incidents{
+    margin-top:12vb;
+}
+
+.incident-date{
+    margin-top:4vb;
+    font-weight:550;
+    font-size: 3.5vb;
+    padding:10px;
+    border-bottom: 2px solid #c9c7c7;
+    margin-bottom: 10px;
+}
+
+.incident-report{
+    margin-top: 15px;
+}
+
+.increased-api {
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    color:black;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 8vb;
+}
+
+.back-link {
+    color: #4a90e2;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.powered-by {
+    color: #888;
+    text-decoration: none;
+}
+
+.powered-by:hover {
+    color: #4a90e2;
+}
