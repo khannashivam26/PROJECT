@@ -288,3 +288,68 @@ body{
 .uptime-day {
     cursor: pointer;
 }
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .top-title {
+        font-size: 50px;
+        padding: 5vb;
+    }
+    
+    .button-1 {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 5vb 0;
+        font-size: 16px;
+    }
+
+    .uptime-bar-container {
+        height: 20px;
+    }
+    
+    .service-status {
+        padding: 15px;
+    }
+
+    .status-indicator {
+        font-size: 14px;
+    }
+
+    .incidents,
+    .incident-date {
+        font-size: 2.5vb;
+    }
+    
+    .uptime-percentage,
+    .time-range {
+        font-size: 10px;
+    }
+    
+    .popup-container {
+        right: 5%;
+        left: 5%;
+        width: auto;
+    }
+
+    .popup-content {
+        width: 90%;
+        margin: auto;
+        padding: 15px;
+    }
+    
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
