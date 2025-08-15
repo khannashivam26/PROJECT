@@ -67,8 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
             popupContent.innerHTML = `
                 <span class="close-btn">&times;</span>
                 <div style="text-align: center; padding: 20px;">
-                    <p style="font-weight: bold; font-size: 16px;">Subscription Successful</p>
-                    <p>You will now receive notifications on your email for all future status updates.</p>
+                    <p style="font-weight: bold; font-size: 16px;">Subscription Confirmed</p>
+                    <p>You will receive notifications for all future status updates at your registered email address.</p>
                 </div>
             `;
             const newCloseBtn = popupContent.querySelector('.close-btn');
