@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeBtn = document.querySelector('.close-btn');
     const subscribeEmailBtn = document.querySelector('.subscribe-email-btn');
     const popupContent = document.querySelector('.popup-content');
+    const originalPopupContent = popupContent.innerHTML;
     
     subscribeBtn.addEventListener('click', function() {
         subscribePopup.style.display = 'block';
@@ -50,11 +51,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     closeBtn.addEventListener('click', function() {
         subscribePopup.style.display = 'none';
+        popupContent.innerHTML = originalPopupContent;
     });
 
     window.addEventListener('click', function(event) {
         if (event.target === subscribePopup) {
             subscribePopup.style.display = 'none';
+            popupContent.innerHTML = originalPopupContent;
         }
     });
 
@@ -62,8 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const emailInput = document.querySelector('.popup-form input');
         const email = emailInput.value;
-
-        if (email) {
+        
+        if (email.endsWith('@gmail.com') || email.endsWith('@yahoo.com')) {
             popupContent.innerHTML = `
                 <span class="close-btn">&times;</span>
                 <div style="text-align: center; padding: 20px;">
@@ -74,6 +77,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const newCloseBtn = popupContent.querySelector('.close-btn');
             newCloseBtn.addEventListener('click', function() {
                 subscribePopup.style.display = 'none';
+                popupContent.innerHTML = originalPopupContent;
+            });
+        } else {
+            popupContent.innerHTML = `
+                <span class="close-btn">&times;</span>
+                <div style="text-align: center; padding: 20px;">
+                    <p style="font-weight: bold; font-size: 16px; color: #dc3545;">Invalid Email Address</p>
+                    <p>Please enter a valid email from the @gmail.com or @yahoo.com domain.</p>
+                </div>
+            `;
+            const newCloseBtn = popupContent.querySelector('.close-btn');
+            newCloseBtn.addEventListener('click', function() {
+                subscribePopup.style.display = 'none';
+                popupContent.innerHTML = originalPopupContent;
             });
         }
     });
