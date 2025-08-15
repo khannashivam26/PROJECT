@@ -41,7 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const subscribeBtn = document.getElementById('subscribeBtn');
     const subscribePopup = document.getElementById('subscribePopup');
     const closeBtn = document.querySelector('.close-btn');
-
+    const subscribeEmailBtn = document.querySelector('.subscribe-email-btn');
+    const popupContent = document.querySelector('.popup-content');
+    
     subscribeBtn.addEventListener('click', function() {
         subscribePopup.style.display = 'block';
     });
@@ -53,6 +55,26 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('click', function(event) {
         if (event.target === subscribePopup) {
             subscribePopup.style.display = 'none';
+        }
+    });
+
+    subscribeEmailBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const emailInput = document.querySelector('.popup-form input');
+        const email = emailInput.value;
+
+        if (email) {
+            popupContent.innerHTML = `
+                <span class="close-btn">&times;</span>
+                <div style="text-align: center; padding: 20px;">
+                    <p style="font-weight: bold; font-size: 16px;">Thanks for subscribing!</p>
+                    <p>You are now subscribed to status updates.</p>
+                </div>
+            `;
+            const newCloseBtn = popupContent.querySelector('.close-btn');
+            newCloseBtn.addEventListener('click', function() {
+                subscribePopup.style.display = 'none';
+            });
         }
     });
 
