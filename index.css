@@ -289,7 +289,6 @@ body{
     cursor: pointer;
 }
 
-/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .container {
         margin-left: 5%;
