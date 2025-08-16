@@ -289,7 +289,7 @@ body{
     cursor: pointer;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .container {
         margin-left: 5%;
         margin-right: 5%;
@@ -351,4 +351,18 @@ body{
         align-items: center;
         gap: 10px;
     }
+    
+    .uptime-bar-container {
+        height: 25px; 
+        flex-wrap: wrap; 
+    }
 
+    .uptime-day {
+        width: 1.5%; 
+        margin: 1px;
+    }
+    
+    .uptime-day.down {
+        background-color: #dc3545; 
+    }
+}
