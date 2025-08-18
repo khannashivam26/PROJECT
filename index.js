@@ -40,28 +40,23 @@ function createUptimeBars(containerId, totalDays, downtimeIndices = []) {
 document.addEventListener('DOMContentLoaded', () => {
     const subscribeBtn = document.getElementById('subscribeBtn');
     const subscribePopup = document.getElementById('subscribePopup');
-    const closeBtn = document.querySelector('.close-btn');
-    const subscribeEmailBtn = document.querySelector('.subscribe-email-btn');
     const popupContent = document.querySelector('.popup-content');
     const originalPopupContent = popupContent.innerHTML;
-    
-    subscribeBtn.addEventListener('click', function() {
-        subscribePopup.style.display = 'block';
-    });
 
-    closeBtn.addEventListener('click', function() {
+    const closeAndResetPopup = () => {
         subscribePopup.style.display = 'none';
         popupContent.innerHTML = originalPopupContent;
-    });
-
-    window.addEventListener('click', function(event) {
-        if (event.target === subscribePopup) {
-            subscribePopup.style.display = 'none';
-            popupContent.innerHTML = originalPopupContent;
+        const newSubscribeEmailBtn = popupContent.querySelector('.subscribe-email-btn');
+        if (newSubscribeEmailBtn) {
+            newSubscribeEmailBtn.addEventListener('click', handleSubscription);
         }
-    });
-
-    subscribeEmailBtn.addEventListener('click', function(e) {
+        const newCloseBtn = popupContent.querySelector('.close-btn');
+        if (newCloseBtn) {
+            newCloseBtn.addEventListener('click', closeAndResetPopup);
+        }
+    };
+    
+    const handleSubscription = (e) => {
         e.preventDefault();
         const emailInput = document.querySelector('.popup-form input');
         const email = emailInput.value;
@@ -74,11 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p>You will receive notifications for all future status updates at your registered email address.</p>
                 </div>
             `;
-            const newCloseBtn = popupContent.querySelector('.close-btn');
-            newCloseBtn.addEventListener('click', function() {
-                subscribePopup.style.display = 'none';
-                popupContent.innerHTML = originalPopupContent;
-            });
         } else {
             popupContent.innerHTML = `
                 <span class="close-btn">&times;</span>
@@ -87,13 +77,30 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p>Please enter a valid email from the @gmail.com or @yahoo.com domain.</p>
                 </div>
             `;
-            const newCloseBtn = popupContent.querySelector('.close-btn');
-            newCloseBtn.addEventListener('click', function() {
-                subscribePopup.style.display = 'none';
-                popupContent.innerHTML = originalPopupContent;
-            });
+        }
+        const newCloseBtn = popupContent.querySelector('.close-btn');
+        newCloseBtn.addEventListener('click', closeAndResetPopup);
+    };
+
+    subscribeBtn.addEventListener('click', function() {
+        subscribePopup.style.display = 'block';
+    });
+
+    const initialCloseBtn = document.querySelector('.close-btn');
+    if (initialCloseBtn) {
+        initialCloseBtn.addEventListener('click', closeAndResetPopup);
+    }
+
+    window.addEventListener('click', function(event) {
+        if (event.target === subscribePopup) {
+            closeAndResetPopup();
         }
     });
+
+    const initialSubscribeEmailBtn = document.querySelector('.subscribe-email-btn');
+    if (initialSubscribeEmailBtn) {
+        initialSubscribeEmailBtn.addEventListener('click', handleSubscription);
+    }
 
     const totalDays = 90;
     const apiDowntimeDays = [87, 88];
